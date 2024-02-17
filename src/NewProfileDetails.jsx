@@ -264,7 +264,7 @@ export const NewProfileDetails = () => {
               </div>
               <div className="w-full h-fit mt-2 flex justify-center items-center">
                 <a
-                  href="#"
+                  href="/profile_details/team_profile"
                   className="w-[90%] h-[2.5rem] mb-3 flex items-center justify-center bg-[#d06a0f] rounded-md font-semibold text-white hover:scale-[1.01] active:scale-[0.99] hover:shadow-[0px_0px_10px_gray] "
                 >
                   Team Profile
