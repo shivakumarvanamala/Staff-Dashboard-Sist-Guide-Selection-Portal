@@ -12,12 +12,13 @@ export const StaffDashboard = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-fit flex flex-col gap-4">
-      <header className="h-fit bg-[#831238] flex items-center justify-between px-16">
-        <div className="flex justify-center items-center">
+    <>
+      {/*  <div className="w-fit flex flex-col gap-4"> */}
+      <header className="h-fit bg-[#831238] flex items-center justify-between px-16 mb-5">
+        <div className="flex justify-center items-center sm:max-md:justify-self-start ">
           <a href="#">
             <img
-              className="h-16 w-auto my-3 float-start"
+              className="h-12 my-3 float-start"
               src="https://erp.sathyabama.ac.in/assets/images/sathyabama_header-logo-A++.jpg"
               alt="logo"
             />
@@ -31,7 +32,7 @@ export const StaffDashboard = () => {
           }}
         >
           <img
-            className="h-auto w-9  rounded-full"
+            className="h-auto w-9 rounded-full"
             src="https://sathyabama-erp-s3.s3.ap-south-1.amazonaws.com/admission/profile/606036-1706720845384-ErpUpload.png"
             alt="Faculty"
           />
@@ -66,7 +67,7 @@ export const StaffDashboard = () => {
                     href="#"
                     className="w-full flex justify-start items-center gap-1 pl-2"
                   >
-                    <img className="h-4 w-4" src={lock} alt="Home" />
+                    <img className="h-4 w-4" src={lock} alt="Lock" />
                     Change Password
                   </a>
                 </div>
@@ -96,7 +97,7 @@ export const StaffDashboard = () => {
                   href="#"
                   className="w-full flex justify-start items-center gap-1 pl-2"
                 >
-                  <img className="h-4 w-4" src={lock} alt="Home" />
+                  <img className="h-4 w-4" src={lock} alt="Lock" />
                   Change Password
                 </a>
               </div>
@@ -113,26 +114,51 @@ export const StaffDashboard = () => {
           )}
         </div>
       </header>
-      <div className="w-fit mx-auto" onClick={() => setOpen(false)}>
-        <div className="w-fit mx-16 lg:mx-24 md:mx-20 sm:mx-24 flex flex-wrap gap-x-12 gap-y-8 justify-start items-center rounded">
-          {projectDetails.map((project, id) => (
-            <ProjectCard
-              key={id}
-              teamLeadImg={project.teamLeadImg}
-              id={project.projectId}
-              registerNoOne={project.registerNoOne}
-              studentOne={project.studentOne}
-              registerNoTwo={project.registerNoTwo}
-              studentTwo={project.studentTwo}
-              title={project.projectTitle}
-            />
-          ))}
-        </div>
-      </div>
-      <footer className="w-screen h-8 bg-white text-black text-center">
-        &copy; {new Date().getFullYear()} Sathyabama University. All rights
-        reserved.
+      {/* <div className="w-fit mx-auto" onClick={() => setOpen(false)}>
+          <div className="w-fit mx-16 lg:mx-24 md:mx-20 sm:mx-24 flex flex-wrap gap-x-12 gap-y-8 justify-start items-center rounded">
+            {projectDetails.map((project, id) => (
+              <ProjectCard
+                key={id}
+                teamLeadImg={project.teamLeadImg}
+                id={project.projectId}
+                registerNoOne={project.registerNoOne}
+                studentOne={project.studentOne}
+                registerNoTwo={project.registerNoTwo}
+                studentTwo={project.studentTwo}
+                title={project.projectTitle}
+              />
+            ))}
+          </div>
+        </div> */}
+      <main
+        className="w-[90%] h-fit mx-auto grid place-items-center grid-cols-1 md:grid-cols-3 gap-3 mb-5"
+        onClick={() => setOpen(false)}
+      >
+        {projectDetails.map((project) => (
+          <ProjectCard
+            key={project.projectId}
+            team={project.team}
+            studentOneImg={project.studentOneImg}
+            studentTwoImg={project.studentTwoImg}
+            projectId={project.projectId}
+            regNoOne={project.regNoOne}
+            studentOne={project.studentOne}
+            regNoTwo={project.regNoTwo}
+            studentTwo={project.studentTwo}
+            projectTitle={project.projectTitle}
+            projectDomain={project.projectDomain}
+          />
+        ))}
+      </main>
+
+      <footer
+        className="w-full h-8 bg-slate-100 flex items-center justify-center text-black "
+        onClick={() => setOpen(false)}
+      >
+        <b>&copy;</b>&nbsp;
+        {new Date().getFullYear()} Sathyabama University. All rights reserved.
       </footer>
-    </div>
+      {/* </div> */}
+    </>
   );
 };
