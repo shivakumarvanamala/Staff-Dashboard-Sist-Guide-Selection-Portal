@@ -10,8 +10,7 @@ export const projectDetails = [
     studentOne: "Student 1",
     regNoTwo: 40000000,
     studentTwo: "Student 1",
-    projectTitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus?",
+    projectTitle: "title of the project - project title",
     projectDomain: "domain of the project - project domain"
   },
   {
@@ -25,8 +24,7 @@ export const projectDetails = [
     studentOne: "Student 2",
     // regNoTwo: 40000000,
     // studentTwo: "Student 2",
-    projectTitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus?",
+    projectTitle: "title of the project - project title",
     projectDomain: "domain of the project - project domain"
   },
   {
@@ -40,8 +38,7 @@ export const projectDetails = [
     studentOne: "Student 3",
     // regNoTwo: 40000000,
     // studentTwo: "Student 3",
-    projectTitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus?",
+    projectTitle: "title of the project - project title",
     projectDomain: "domain of the project - project domain"
   },
   {
@@ -55,8 +52,7 @@ export const projectDetails = [
     studentOne: "Student 4",
     regNoTwo: 40000000,
     studentTwo: "Student 4",
-    projectTitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus?",
+    projectTitle: "title of the project - project title",
     projectDomain: "domain of the project - project domain"
   },
   {
@@ -70,8 +66,7 @@ export const projectDetails = [
     studentOne: "Student 5",
     regNoTwo: 40000000,
     studentTwo: "Student 5",
-    projectTitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus?",
+    projectTitle: "title of the project - project title",
     projectDomain: "domain of the project - project domain"
   },
   {
@@ -85,8 +80,7 @@ export const projectDetails = [
     studentOne: "Student 6",
     // regNoTwo: 40000000,
     // studentTwo: "Student 6",
-    projectTitle:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus?",
+    projectTitle: "title of the project - project title",
     projectDomain: "domain of the project - project domain"
   },
 
