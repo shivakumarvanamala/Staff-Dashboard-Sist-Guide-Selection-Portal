@@ -3,23 +3,22 @@ import { useState } from "react";
 import { projectDetails } from "./projectDetails"; // Project details js file
 import { ProjectCard } from "./ProjectCard";
 
+import hum_berger from "./assets/hum_berger.svg";
+
 import log_out from "./assets/log_out.svg";
 import lock from "./assets/lock.svg";
-
-import hum_berger from "./assets/hum_berger.svg";
 
 export const StaffDashboard = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      {/*  <div className="w-fit flex flex-col gap-4"> */}
-      <header className="h-fit bg-[#831238] flex items-center justify-between px-16 mb-5">
-        <div className="flex justify-center items-center sm:max-md:justify-self-start ">
+      <header className="h-fit bg-[#333652] flex items-center justify-between px-16 mb-5">
+        <div className="flex items-center justify-center sm:max-md:justify-self-start ">
           <a href="#">
             <img
               className="h-12 my-3 float-start"
-              src="https://erp.sathyabama.ac.in/assets/images/sathyabama_header-logo-A++.jpg"
+              src="https://cdn.freebiesupply.com/logos/large/2x/for-dummies-1-logo-png-transparent.png"
               alt="logo"
             />
           </a>
@@ -32,21 +31,21 @@ export const StaffDashboard = () => {
           }}
         >
           <img
-            className="h-auto w-9 rounded-full"
+            className="h-auto rounded-full w-9"
             src="https://sathyabama-erp-s3.s3.ap-south-1.amazonaws.com/admission/profile/606036-1706720845384-ErpUpload.png"
             alt="Faculty"
           />
-          <div className="hidden md:flex md:items-center md:justify-center relative">
-            <h3 className="text-white">SHIVA KUMAR VANAMALA</h3>
+          <div className="relative hidden md:flex md:items-center md:justify-center">
+            <h3 className="text-white">staff.dept@institution.in</h3>
             &nbsp;&nbsp;&nbsp;
             <span
-              className="rounded-full flex items-center justify-center"
+              className="flex items-center justify-center rounded-full"
               onClick={() => {
                 setOpen(!open);
               }}
             >
               <svg
-                className="h-5 w-5 text-gray-100"
+                className="w-5 h-5 text-gray-100"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -65,18 +64,18 @@ export const StaffDashboard = () => {
                 <div className="w-full flex items-center justify-center h-2/5 bg-slate-100 text-[#6C757D]  hover:bg-slate-200">
                   <a
                     href="#"
-                    className="w-full flex justify-start items-center gap-1 pl-2"
+                    className="flex items-center justify-start w-full gap-1 pl-2"
                   >
-                    <img className="h-4 w-4" src={lock} alt="Lock" />
+                    <img className="w-4 h-4" src={lock} alt="Lock" />
                     Change Password
                   </a>
                 </div>
                 <div className="w-full flex justify-center items-center h-2/5 bg-slate-100 text-[#6C757D] hover:bg-slate-200">
                   <a
                     href="/"
-                    className=" w-full flex justify-start items-center gap-1 pl-2"
+                    className="flex items-center justify-start w-full gap-1 pl-2 "
                   >
-                    <img className="h-4 w-4" src={log_out} alt="LogOut" />
+                    <img className="w-4 h-4" src={log_out} alt="LogOut" />
                     Log Out
                   </a>
                 </div>
@@ -84,7 +83,7 @@ export const StaffDashboard = () => {
             )}
           </div>
           {/* HumBerger icon for sm to md*/}
-          <div className="h-5 w-5 md:hidden relative">
+          <div className="relative w-5 h-5 md:hidden">
             <img src={hum_berger} alt="HumBerger" />
           </div>
           {open && (
@@ -95,18 +94,18 @@ export const StaffDashboard = () => {
               <div className="w-full flex items-center justify-center h-2/5 bg-slate-100 text-[#6C757D]  hover:bg-slate-200">
                 <a
                   href="#"
-                  className="w-full flex justify-start items-center gap-1 pl-2"
+                  className="flex items-center justify-start w-full gap-1 pl-2"
                 >
-                  <img className="h-4 w-4" src={lock} alt="Lock" />
+                  <img className="w-4 h-4" src={lock} alt="Lock" />
                   Change Password
                 </a>
               </div>
               <div className="w-full flex justify-center items-center h-2/5 bg-slate-100 text-[#6C757D] hover:bg-slate-200">
                 <a
                   href="/"
-                  className=" w-full flex justify-start items-center gap-1 pl-2"
+                  className="flex items-center justify-start w-full gap-1 pl-2 "
                 >
-                  <img className="h-4 w-4" src={log_out} alt="LogOut" />
+                  <img className="w-4 h-4" src={log_out} alt="LogOut" />
                   Log Out
                 </a>
               </div>
@@ -114,22 +113,6 @@ export const StaffDashboard = () => {
           )}
         </div>
       </header>
-      {/* <div className="w-fit mx-auto" onClick={() => setOpen(false)}>
-          <div className="w-fit mx-16 lg:mx-24 md:mx-20 sm:mx-24 flex flex-wrap gap-x-12 gap-y-8 justify-start items-center rounded">
-            {projectDetails.map((project, id) => (
-              <ProjectCard
-                key={id}
-                teamLeadImg={project.teamLeadImg}
-                id={project.projectId}
-                registerNoOne={project.registerNoOne}
-                studentOne={project.studentOne}
-                registerNoTwo={project.registerNoTwo}
-                studentTwo={project.studentTwo}
-                title={project.projectTitle}
-              />
-            ))}
-          </div>
-        </div> */}
       <main
         className="w-[90%] h-fit mx-auto grid place-items-center grid-cols-1 md:grid-cols-3 gap-3 mb-5"
         onClick={() => setOpen(false)}
@@ -152,11 +135,11 @@ export const StaffDashboard = () => {
       </main>
 
       <footer
-        className="w-full h-8 bg-slate-100 flex items-center justify-center text-black "
+        className="flex items-center justify-center w-full h-8 text-black bg-slate-100 "
         onClick={() => setOpen(false)}
       >
         <b>&copy;</b>&nbsp;
-        {new Date().getFullYear()} Sathyabama University. All rights reserved.
+        {new Date().getFullYear()} Institution. All rights reserved.
       </footer>
       {/* </div> */}
     </>

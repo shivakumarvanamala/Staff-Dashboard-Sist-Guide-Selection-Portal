@@ -11,22 +11,9 @@ export const projectDetails = [
     regNoTwo: 40000000,
     studentTwo: "Student 1",
     projectTitle: "title of the project - project title",
-    projectDomain: "domain of the project - project domain"
+    projectDomain: "domain of the project - project domain",
   },
-  {
-    team: false,
-    studentOneImg:
-      "https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-vector-illustration-graphic-design-135443492.jpg",
-    // studentTwoImg:
-    //   "https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-vector-illustration-graphic-design-135443492.jpg",
-    projectId: "CSE-102",
-    regNoOne: 40000000,
-    studentOne: "Student 2",
-    // regNoTwo: 40000000,
-    // studentTwo: "Student 2",
-    projectTitle: "title of the project - project title",
-    projectDomain: "domain of the project - project domain"
-  },
+
   {
     team: false,
     studentOneImg:
@@ -39,7 +26,7 @@ export const projectDetails = [
     // regNoTwo: 40000000,
     // studentTwo: "Student 3",
     projectTitle: "title of the project - project title",
-    projectDomain: "domain of the project - project domain"
+    projectDomain: "domain of the project - project domain",
   },
   {
     team: true,
@@ -53,7 +40,21 @@ export const projectDetails = [
     regNoTwo: 40000000,
     studentTwo: "Student 4",
     projectTitle: "title of the project - project title",
-    projectDomain: "domain of the project - project domain"
+    projectDomain: "domain of the project - project domain",
+  },
+  {
+    team: false,
+    studentOneImg:
+      "https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-vector-illustration-graphic-design-135443492.jpg",
+    // studentTwoImg:
+    //   "https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-vector-illustration-graphic-design-135443492.jpg",
+    projectId: "CSE-102",
+    regNoOne: 40000000,
+    studentOne: "Student 2",
+    // regNoTwo: 40000000,
+    // studentTwo: "Student 2",
+    projectTitle: "title of the project - project title",
+    projectDomain: "domain of the project - project domain",
   },
   {
     team: true,
@@ -67,7 +68,7 @@ export const projectDetails = [
     regNoTwo: 40000000,
     studentTwo: "Student 5",
     projectTitle: "title of the project - project title",
-    projectDomain: "domain of the project - project domain"
+    projectDomain: "domain of the project - project domain",
   },
   {
     team: false,
@@ -81,7 +82,6 @@ export const projectDetails = [
     // regNoTwo: 40000000,
     // studentTwo: "Student 6",
     projectTitle: "title of the project - project title",
-    projectDomain: "domain of the project - project domain"
+    projectDomain: "domain of the project - project domain",
   },
-
 ];
