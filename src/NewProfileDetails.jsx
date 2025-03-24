@@ -3,13 +3,9 @@ import { useState } from "react";
 import tick_mark from "./assets/tick_mark.svg";
 import cross_mark from "./assets/cross_mark.png";
 import link from "./assets/link.svg";
+import StaffNavbar from "./StaffNavbar";
 
-import hum_berger from "./assets/hum_berger.svg";
-
-import home from "./assets/home.svg";
-import log_out from "./assets/log_out.svg";
-
-import back_arrow from "./assets/back_arrow.svg";
+// import back_arrow from "./assets/back_arrow.svg";
 
 export const NewProfileDetails = () => {
   const [open, setOpen] = useState(false);
@@ -53,306 +49,227 @@ export const NewProfileDetails = () => {
     paymentDone: false,
   });
 
-  const [comments, setComments] = useState({
-    prevComments: "previous comments here",
-    addComments: "",
+  const [feedbacks, setFeedbacks] = useState({
+    oneFeedback: "",
+    twoFeedback: "",
   });
 
-  const handleAddComments = (eve) => {
-    (prev) =>
-      setComments({
-        ...prev,
-        [eve.target.name]: eve.target.value,
-      });
-    console.log(comments.addComments);
-    // console.log(eve.target.value);
-    // console.log(eve.target.name, eve.target.value);
+  const handleOneFeedback = (eve) => {
+    setFeedbacks((prev) => ({
+      ...prev,
+      [eve.target.name]: eve.target.value,
+    }));
+  };
+  const handleTwoFeedback = (eve) => {
+    setFeedbacks((prev) => ({
+      ...prev,
+      [eve.target.name]: eve.target.value,
+    }));
   };
 
   const handleProjectMarks = (eve) => {
-    (prev) =>
-      setProjectMarks({
-        ...prev,
-        [eve.target.name]: [eve.target.value],
-      });
-    // console.log(eve.target.name, eve.target.value);
+    setProjectMarks((prev) => ({
+      ...prev,
+      [eve.target.name]: eve.target.value,
+    }));
   };
 
-  const handleFinalSubmit = () => {};
+  const handleFinalSubmit = () => {
+    // Submit functionality here
+  };
 
   return (
     <>
-      <header className="h-fit bg-[#333652] flex items-center justify-between px-16">
-        <div className="flex items-center justify-center sm:max-md:justify-self-start ">
-          <a href="#">
-            <img
-              className="h-12 my-3 float-start"
-              src="https://cdn.freebiesupply.com/logos/large/2x/for-dummies-1-logo-png-transparent.png"
-              alt="logo"
-            />
-          </a>
-        </div>
-
-        <div
-          className="relative flex items-center space-x-2 cursor-pointer"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          <img
-            className="h-auto rounded-full w-9"
-            src="https://sathyabama-erp-s3.s3.ap-south-1.amazonaws.com/admission/profile/606036-1706720845384-ErpUpload.png"
-            alt="Faculty"
-          />
-          <div className="relative hidden md:flex md:items-center md:justify-center">
-            <h3 className="text-white">staff.dept@institution.in</h3>
-            &nbsp;&nbsp;&nbsp;
-            <span
-              className="flex items-center justify-center rounded-full"
-              onClick={() => {
-                setOpen(!open);
-              }}
-            >
-              <svg
-                className="w-5 h-5 text-gray-100"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </span>
-            {open && (
-              <div className="hidden absolute md:top-[3rem] md:right-[2px] h-[9rem] w-[10rem] bg-white text-black shadow-2xl  md:flex md:flex-col md:justify-center md:items-center md:gap-[3px] z-50">
-                <div className=" w-full text-[0.8rem] text-[#6C757D] font-semibold h-1/5 bg-slate-100">
-                  &nbsp;&nbsp;&nbsp; Welcome!
-                </div>
-                <div className="w-full flex items-center justify-center h-2/5 bg-slate-100 text-[#6C757D]  hover:bg-slate-200">
-                  <a
-                    href="#"
-                    className="flex items-center justify-start w-full gap-1 pl-2"
-                  >
-                    <img className="w-4 h-4" src={home} alt="Home" />
-                    Home
-                  </a>
-                </div>
-                <div className="w-full flex justify-center items-center h-2/5 bg-slate-100 text-[#6C757D] hover:bg-slate-200">
-                  <a
-                    href="/"
-                    className="flex items-center justify-start w-full gap-1 pl-2 "
-                  >
-                    <img className="w-4 h-4" src={log_out} alt="LogOut" />
-                    Log Out
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-          {/* HumBerger icon for sm to md*/}
-          <div className="relative w-5 h-5 md:hidden">
-            <img src={hum_berger} alt="HumBerger" />
-          </div>
-          {open && (
-            <div className="absolute top-[3.75rem] right-[-20px] h-[9rem] w-[10rem] md:hidden bg-white text-black shadow-2xl  flex flex-col justify-center items-center gap-[3px] z-50 ">
-              <div className=" w-full text-[0.8rem] text-[#6C757D] font-semibold h-1/5 bg-slate-100">
-                &nbsp;&nbsp;&nbsp; Welcome!
-              </div>
-              <div className="w-full flex items-center justify-center h-2/5 bg-slate-100 text-[#6C757D]  hover:bg-slate-200">
-                <a
-                  href="#"
-                  className="flex items-center justify-start w-full gap-1 pl-2"
-                >
-                  <img className="w-4 h-4" src={home} alt="Home" />
-                  Home
-                </a>
-              </div>
-              <div className="w-full flex justify-center items-center h-2/5 bg-slate-100 text-[#6C757D] hover:bg-slate-200">
-                <a
-                  href="/"
-                  className="flex items-center justify-start w-full gap-1 pl-2 "
-                >
-                  <img className="w-4 h-4" src={log_out} alt="LogOut" />
-                  Log Out
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
+      <StaffNavbar open={open} setOpen={setOpen} />
       <main
-        className="w-[96%] md:w-[90%] mx-auto h-fit flex flex-col md:flex-row justify-center items-center my-4"
+        className="w-[95%] mx-auto flex flex-col lg:flex-row gap-4 my-4"
         onClick={() => setOpen(false)}
       >
-        <section className="flex flex-col items-center justify-center w-fit h-fit md:flex-row">
-          <article className="flex flex-col items-center justify-center gap-2 w-fit h-fit">
-            <form className="w-fit h-fit flex flex-col justify-center items-center rounded bg-[#f4eeee] ">
-              <div className="w-[95vw] md:w-[35vw] h-[22.2vh] flex flex-col justify-center items-center">
-                <span className="flex items-center justify-center w-full text-xl font-medium">
+        {/* Left section - Student profiles and project marks */}
+        <section className="w-full lg:w-2/5">
+          <article className="flex flex-col gap-4">
+            {/* Project details card */}
+            <div className="w-full bg-[#f4eeee] rounded shadow">
+              <div className="p-4 text-center">
+                <div className="text-lg md:text-xl font-medium">
                   {projectDetails.projectId}
-                </span>
-                <br />
-                <span className="flex items-center justify-center w-full text-xl font-semibold capitalize">
+                </div>
+                <div className="text-lg md:text-xl font-semibold capitalize mt-2">
                   {projectDetails.projectTitle}
-                </span>
-                <br />
-                <span className="w-full flex justify-center items-center capitalize text-xl font-[400]">
+                </div>
+                <div className="text-lg md:text-xl capitalize mt-2">
                   {projectDetails.projectDomain}
-                </span>
+                </div>
               </div>
-              <div className="w-full h-[50vh] flex justify-center items-center gap-2 border-y-2 border-y-white">
+
+              <div className="flex flex-col sm:flex-row border-y-2 border-y-white">
+                {/* Student one */}
                 <div
                   className={`${
-                    projectDetails.team ? "w-1/2" : "w-full"
-                  }${" "}${"h-full flex flex-col justify-center items-center border-r-2 border-r-white"}`}
+                    projectDetails.team ? "w-full sm:w-1/2" : "w-full"
+                  }
+                  p-4 flex flex-col items-center ${
+                    projectDetails.team
+                      ? "border-b-2 sm:border-b-0 sm:border-r-2 border-white"
+                      : ""
+                  }`}
                 >
                   <img
                     src={projectDetails.studentOneImg}
                     alt="Student1"
-                    className="w-[10rem] rounded-full border border-black p-1"
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-black p-1 object-cover"
                   />
-                  <br />
-                  <div className="w-full h-[20vh] flex flex-col items-center justify-center">
-                    <span className="w-full m-auto text-xl font-medium text-center break-before-all">
+                  <div className="mt-4 text-center">
+                    <div className="text-base md:text-lg font-medium">
                       {projectDetails.studentOneRegNo}
-                    </span>
-                    <span className="w-full m-auto text-xl font-medium text-center break-before-all">
+                    </div>
+                    <div className="text-base md:text-lg font-medium">
                       {projectDetails.studentOneSection}
-                    </span>
-                    <span className="w-full m-auto text-xl font-bold text-center capitalize break-before-all">
+                    </div>
+                    <div className="text-base md:text-lg font-bold capitalize mt-1">
                       {projectDetails.studentOneName}
-                    </span>
+                    </div>
                   </div>
                 </div>
+
+                {/* Student two (if team project) */}
                 {projectDetails.team && (
-                  <div
-                    className={`${
-                      projectDetails.team ? "w-1/2" : "w-full"
-                    }${" "}${"h-full flex flex-col justify-center items-center"}`}
-                  >
+                  <div className="w-full sm:w-1/2 p-4 flex flex-col items-center">
                     <img
                       src={projectDetails.studentTwoImg}
-                      alt="Student1"
-                      className="w-[10rem] rounded-full border border-black p-1"
+                      alt="Student2"
+                      className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-black p-1 object-cover"
                     />
-                    <br />
-                    <div className="w-full h-[20vh] flex flex-col items-center justify-center">
-                      <span className="w-full m-auto text-xl font-medium text-center break-before-all">
+                    <div className="mt-4 text-center">
+                      <div className="text-base md:text-lg font-medium">
                         {projectDetails.studentTwoRegNo}
-                      </span>
-                      <span className="w-full m-auto text-xl font-medium text-center break-before-all">
+                      </div>
+                      <div className="text-base md:text-lg font-medium">
                         {projectDetails.studentTwoSection}
-                      </span>
-                      <span className="w-full m-auto text-xl font-bold text-center capitalize break-before-all">
+                      </div>
+                      <div className="text-base md:text-lg font-bold capitalize mt-1">
                         {projectDetails.studentTwoName}
-                      </span>
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
-              <div className="flex items-center justify-center w-full mt-2 h-fit">
+
+              <div className="p-4 flex items-center justify-center">
                 <a
                   href="/profile_details/team_profile"
-                  className="w-[90%] h-[2.5rem] mb-3 flex items-center justify-center bg-[#FB773C] rounded-md font-semibold text-white hover:scale-[1.01] active:scale-[0.99] hover:shadow-[0px_0px_10px_gray] "
+                  className="w-full max-w-md h-10 flex items-center justify-center bg-[#fd4e00] rounded-md font-semibold text-white hover:scale-[1.01] active:scale-[0.99] hover:shadow-lg transition-all"
                 >
                   Team Profile
                 </a>
               </div>
-            </form>
-            <form className="flex flex-col items-center justify-center gap-2 mt-2 rounded-md w-fit h-fit">
-              <div className="w-[95vw] md:w-[35vw] h-[4rem] text-xl font-medium text-white flex justify-center items-center bg-[#50547a] ">
+            </div>
+
+            {/* Project marks card */}
+            <div className="w-full min-h-36 rounded-md shadow overflow-hidden">
+              <div className="w-full h-12 md:h-16 text-lg md:text-xl font-medium text-white flex justify-center items-center bg-[#50547a]">
                 Project Marks
               </div>
-              <div className="w-full h-[25vh] flex justify-center items-center gap-1">
+              <div className="flex flex-col sm:flex-row bg-[#e2e8f0]">
+                {/* Student one marks */}
                 <div
                   className={`${
-                    projectDetails.team ? "w-1/2" : "w-full"
-                  }${" "}${"h-full flex flex-col justify-center items-center bg-[#e2e8f0] "}`}
+                    projectDetails.team ? "w-full sm:w-1/2" : "w-full"
+                  } p-4 border-b sm:border-b-0 ${
+                    projectDetails.team ? "sm:border-r" : ""
+                  } border-gray-300`}
                 >
-                  <div className="flex items-center justify-center w-full text-lg font-semibold h-1/2 break-before-all ">
+                  <div className="text-base md:text-lg font-semibold text-center mb-4">
                     {projectDetails.studentOneRegNo}
                   </div>
-                  <div className="flex flex-col items-center justify-center w-full mb-5 h-1/2 break-before-all">
-                    <div>
-                      <label htmlFor="studentOneMarks" className="font-normal">
-                        Enter Marks : &nbsp;
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center">
+                      <label
+                        htmlFor="studentOneMarks"
+                        className="text-sm md:text-base font-normal mr-2"
+                      >
+                        Enter Marks:
                       </label>
                       <input
-                        className="text-center"
+                        className="w-24 text-center border border-gray-400 rounded px-2 py-1"
                         placeholder="Marks"
                         type="number"
                         id="studentOneMarks"
                         name="studentOneMarks"
-                        defaultValue={projectMarks.studentOneMarks}
-                        onChange={(eve) => handleProjectMarks(eve)}
+                        value={projectMarks.studentOneMarks}
+                        onChange={handleProjectMarks}
                         required
                         style={{
-                          WebkitAppearance: "none" /* for Safari */,
-                          MozAppearance: "textfield" /* for Firefox */,
-                          appearance: "none" /* for other modern browsers */,
+                          WebkitAppearance: "none",
+                          MozAppearance: "textfield",
+                          appearance: "none",
                         }}
                         min="0"
                         max="15"
-                        maxLength="2"
                       />
                     </div>
-                    <span className="font-normal "> &#40;Out of 15&#41;</span>
+                    <div className="text-sm md:text-base font-normal mt-2">
+                      (Out of 15)
+                    </div>
                   </div>
                 </div>
+
+                {/* Student two marks (if team project) */}
                 {projectDetails.team && (
-                  <div
-                    className={`${
-                      projectDetails.team ? "w-1/2" : "w-full"
-                    }${" "}${"h-full flex flex-col justify-center items-center bg-[#e2e8f0] "}`}
-                  >
-                    <div className="flex items-center justify-center w-full text-lg font-semibold h-1/2 break-before-all ">
+                  <div className="w-full sm:w-1/2 p-4">
+                    <div className="text-base md:text-lg font-semibold text-center mb-4">
                       {projectDetails.studentTwoRegNo}
                     </div>
-                    <div className="flex flex-col items-center justify-center w-full mb-5 h-1/2 break-before-all">
-                      <div>
+                    <div className="flex flex-col items-center">
+                      <div className="flex items-center">
                         <label
                           htmlFor="studentTwoMarks"
-                          className="font-normal"
+                          className="text-sm md:text-base font-normal mr-2"
                         >
-                          Enter Marks : &nbsp;
+                          Enter Marks:
                         </label>
                         <input
-                          className="text-center"
+                          className="w-24 text-center border border-gray-400 rounded px-2 py-1"
                           placeholder="Marks"
                           type="number"
                           id="studentTwoMarks"
                           name="studentTwoMarks"
-                          defaultValue={projectMarks.studentTwoMarks}
-                          onChange={(eve) => handleProjectMarks(eve)}
+                          value={projectMarks.studentTwoMarks}
+                          onChange={handleProjectMarks}
                           required
                           style={{
-                            WebkitAppearance: "none" /* for Safari */,
-                            MozAppearance: "textfield" /* for Firefox */,
-                            appearance: "none" /* for other modern browsers */,
+                            WebkitAppearance: "none",
+                            MozAppearance: "textfield",
+                            appearance: "none",
                           }}
                           min="0"
                           max="15"
-                          maxLength="2"
                         />
                       </div>
-                      <span className="font-normal"> &#40;Out of 15&#41;</span>
+                      <div className="text-sm md:text-base font-normal mt-2">
+                        (Out of 15)
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
-            </form>
+            </div>
           </article>
         </section>
-        <section className="flex flex-col items-center justify-center w-fit h-fit">
-          <article className="w-[96vw] md:w-[55vw] flex flex-col md:flex-row justify-center items-center gap-1 ">
-            <form className="flex flex-col items-center justify-center mt-4 ">
-              <div className="w-[95vw] md:w-[17.5vw] h-[5rem] text-xl font-medium text-white flex justify-center items-center bg-[#50547a] mb-1">
+
+        {/* Right section - Project status and approvals */}
+        <section className="w-full lg:w-3/5">
+          {/* Project status and approvals */}
+          <article className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Project status card */}
+            <div className="w-full min-h-36 max-w-2xl mx-auto">
+              <div className="h-12 md:h-16 text-lg md:text-xl font-medium text-white flex justify-center items-center bg-[#50547a] rounded-t">
                 Project Status
               </div>
-              <div className=" w-[95vw] md:w-[17.5vw] h-fit bg-slate-200 flex flex-col justify-evenly items-center border-b-2 border-b-white">
-                <div className="text-[#831238] w-[95vw] md:w-[17.5vw] h-[5rem] text-xl flex items-center justify-center font-medium gap-2">
+
+              {/* Documentation status */}
+              <div className="bg-slate-200 p-4 border-b-2 border-white min-h-36">
+                <div className="text-[#831238] text-lg md:text-xl flex flex-wrap items-center justify-center font-medium gap-2 mb-4 text-center">
                   <a
                     href={links.documentation}
                     className="flex items-center gap-1"
@@ -364,17 +281,17 @@ export const NewProfileDetails = () => {
                     <img src={link} alt="link" className="w-3 h-3" />
                   </a>
                   {documentation === true && (
-                    <img src={tick_mark} className="w-6 h-6" />
+                    <img src={tick_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                   {documentation === false && (
-                    <img src={cross_mark} className="w-6 h-6" />
+                    <img src={cross_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                 </div>
-                <div className="flex gap-4 mb-4">
+                <div className="flex justify-center gap-3 flex-wrap">
                   <button
                     type="button"
                     onClick={() => setDocumentation(true)}
-                    className="bg-green-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#2e8a2e] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         documentation === true
@@ -388,7 +305,7 @@ export const NewProfileDetails = () => {
                   <button
                     type="button"
                     onClick={() => setDocumentation(false)}
-                    className="bg-red-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#ac3f2c] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         documentation === false
@@ -401,8 +318,10 @@ export const NewProfileDetails = () => {
                   </button>
                 </div>
               </div>
-              <div className=" w-[95vw] md:w-[17.5vw] h-fit bg-slate-200 flex flex-col justify-evenly items-center">
-                <div className="text-[#831238]  w-[95vw] md:w-[17.5vw] h-[5rem] text-xl flex items-center justify-center font-medium gap-2">
+
+              {/* PPT status */}
+              <div className="bg-slate-200 p-4 min-h-36">
+                <div className="text-[#831238] text-lg md:text-xl flex flex-wrap items-center justify-center font-medium gap-2 mb-4 text-center">
                   <a
                     href={links.ppt}
                     className="flex items-center gap-1"
@@ -413,16 +332,18 @@ export const NewProfileDetails = () => {
                     </h3>
                     <img src={link} alt="link" className="w-3 h-3" />
                   </a>
-                  {ppt === true && <img src={tick_mark} className="w-6 h-6" />}
+                  {ppt === true && (
+                    <img src={tick_mark} className="w-5 h-5 md:w-6 md:h-6" />
+                  )}
                   {ppt === false && (
-                    <img src={cross_mark} className="w-6 h-6" />
+                    <img src={cross_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                 </div>
-                <div className="flex gap-4 mb-4">
+                <div className="flex justify-center gap-3 flex-wrap">
                   <button
                     type="button"
                     onClick={() => setPpt(true)}
-                    className="bg-green-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#2e8a2e] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         ppt === true ? "0 0 10px rgba(0, 0, 0, 0.8)" : "none",
@@ -434,7 +355,7 @@ export const NewProfileDetails = () => {
                   <button
                     type="button"
                     onClick={() => setPpt(false)}
-                    className="bg-red-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#ac3f2c] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         ppt === false ? "0 0 10px rgba(0, 0, 0, 0.8)" : "none",
@@ -445,13 +366,15 @@ export const NewProfileDetails = () => {
                   </button>
                 </div>
               </div>
-            </form>
-            <form className="flex flex-col items-center justify-center mt-4 ">
-              <div className="w-[95vw] md:w-[17.5vw] h-[5rem] text-xl font-medium text-white flex justify-center items-center bg-[#50547a] mb-1 ">
+            </div>
+
+            {/* Research card */}
+            <div className="w-full min-h-36 flex flex-col bg-slate-200 rounded">
+              <div className="h-12 md:h-16 text-lg md:text-xl font-medium text-white flex justify-center items-center bg-[#50547a] rounded-t">
                 Research
               </div>
-              <div className=" w-[95vw] md:w-[17.5vw] h-fit bg-slate-200 flex flex-col justify-evenly items-center">
-                <div className="text-[#831238]  w-[95vw] md:w-[17.5vw] h-[5rem] text-xl flex items-center justify-center font-medium gap-2">
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div className="text-[#831238] text-lg md:text-xl flex items-center justify-center font-medium gap-2 mb-4 flex-wrap text-center">
                   <a
                     href={links.researchPaper}
                     className="flex items-center gap-1"
@@ -463,82 +386,46 @@ export const NewProfileDetails = () => {
                     <img src={link} alt="link" className="w-3 h-3" />
                   </a>
                   {researchPaper === true && (
-                    <img src={tick_mark} className="w-6 h-6" />
+                    <img src={tick_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                   {researchPaper === false && (
-                    <img src={cross_mark} className="w-6 h-6" />
+                    <img src={cross_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                 </div>
-                <ul className="flex flex-col gap-4 mb-8">
-                  <li className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      defaultChecked={isChecked.communicated}
-                      id="communicated"
-                      name="communicated"
-                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded cursor-pointer form-checkbox focus:ring-indigo-500"
-                    />
-                    <label
-                      htmlFor="communicated"
-                      className="font-medium cursor-pointer"
-                      onClick={(prev) =>
-                        setIsChecked({
-                          ...prev,
-                          communicated: !prev.communicated,
-                        })
-                      }
-                    >
-                      Communicated
-                    </label>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      defaultChecked={isChecked.accepted}
-                      id="accepted"
-                      name="accepted"
-                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded cursor-pointer form-checkbox focus:ring-indigo-500"
-                    />
-                    <label
-                      htmlFor="accepted"
-                      className="font-medium cursor-pointer"
-                      onClick={(prev) =>
-                        setIsChecked({
-                          ...prev,
-                          accepted: !prev.accepted,
-                        })
-                      }
-                    >
-                      Accepted
-                    </label>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      defaultChecked={isChecked.paymentDone}
-                      id="paymentDone"
-                      name="paymentDone"
-                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded cursor-pointer form-checkbox focus:ring-indigo-500"
-                    />
-                    <label
-                      htmlFor="paymentDone"
-                      className="font-medium cursor-pointer"
-                      onClick={(prev) =>
-                        setIsChecked({
-                          ...prev,
-                          paymentDone: !prev.paymentDone,
-                        })
-                      }
-                    >
-                      Payment Done
-                    </label>
-                  </li>
+                <ul className="flex flex-col gap-2 mb-4">
+                  {[
+                    { id: "communicated", label: "Communicated" },
+                    { id: "accepted", label: "Accepted" },
+                    { id: "paymentDone", label: "Payment Done" },
+                  ].map(({ id, label }) => (
+                    <li key={id} className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={isChecked[id]}
+                        id={id}
+                        name={id}
+                        className="w-4 h-4 text-indigo-600 border-gray-300 rounded cursor-pointer form-checkbox focus:ring-indigo-500"
+                        onChange={() =>
+                          setIsChecked((prev) => ({
+                            ...prev,
+                            [id]: !prev[id],
+                          }))
+                        }
+                      />
+                      <label
+                        htmlFor={id}
+                        className="text-sm md:text-base font-medium cursor-pointer"
+                      >
+                        {label}
+                      </label>
+                    </li>
+                  ))}
                 </ul>
-                <div className="flex gap-4 mb-4">
+                <div className="flex justify-center gap-3 flex-wrap">
                   <button
                     type="button"
                     onClick={() => setResearchPaper(true)}
-                    className="bg-green-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#2e8a2e] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         researchPaper === true
@@ -552,7 +439,7 @@ export const NewProfileDetails = () => {
                   <button
                     type="button"
                     onClick={() => setResearchPaper(false)}
-                    className="bg-red-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#ac3f2c] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         researchPaper === false
@@ -565,26 +452,28 @@ export const NewProfileDetails = () => {
                   </button>
                 </div>
               </div>
-            </form>
-            <form className="flex flex-col items-center justify-center mt-4 bg-slate-200 ">
-              <div className="w-[95vw] md:w-[17.5vw] h-[5.25rem] text-xl font-medium text-white flex justify-center items-center bg-[#50547a] mb-0 border-b-4 border-b-white ">
+            </div>
+
+            {/* Approval card */}
+            <div className="w-full min-h-36 flex flex-col bg-slate-200 rounded">
+              <div className="h-12 md:h-16 text-lg md:text-xl font-medium text-white flex justify-center items-center bg-[#50547a] rounded-t">
                 Approval
               </div>
-              <div className="w-full md:h-[39.3vh] flex flex-col justify-evenly items-center ">
-                <div className="text-[#831238]  w-[95vw] md:w-[17.5vw] h-[5rem] text-xl flex items-center justify-center font-medium gap-2">
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div className="text-[#831238] text-lg md:text-xl flex items-center justify-center font-medium gap-2 mb-4 flex-wrap text-center">
                   <h3>Guide Approval</h3>
                   {guideApproval === true && (
-                    <img src={tick_mark} className="w-6 h-6" />
+                    <img src={tick_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                   {guideApproval === false && (
-                    <img src={cross_mark} className="w-6 h-6" />
+                    <img src={cross_mark} className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                 </div>
-                <div className="flex gap-4 my-4">
+                <div className="flex justify-center gap-3 mt-auto flex-wrap">
                   <button
                     type="button"
                     onClick={() => setGuideApproval(true)}
-                    className="bg-green-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#2e8a2e] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         guideApproval === true
@@ -598,7 +487,7 @@ export const NewProfileDetails = () => {
                   <button
                     type="button"
                     onClick={() => setGuideApproval(false)}
-                    className="bg-red-500 w-24 h-10 rounded-3xl text-white font-medium hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+                    className="bg-[#ac3f2c] w-20 md:w-24 h-9 md:h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
                     style={{
                       boxShadow:
                         guideApproval === false
@@ -611,72 +500,75 @@ export const NewProfileDetails = () => {
                   </button>
                 </div>
               </div>
-              {/* <div className="flex items-center justify-center w-full mb-3 md:hidden ">
-                <a
-                  href="#addComments"
-                  className="bg-orange-500 w-[8rem] h-10 rounded-3xl text-white font-medium flex justify-center items-center hover:shadow-[0px_0px_10px_gray] hover:scale-105 transition-transform"
-                >
-                  Comments&nbsp;
-                  <span className="text-2xl font-bold">&darr;</span>
-                </a>
-              </div> */}
-            </form>
-          </article>
-          <article className="w-[96vw] md:w-[55vw] flex flex-col justify-center items-center mt-4 ">
-            <div className="w-full md:w-[96%] h-[4rem] text-xl font-medium text-white flex justify-center items-center bg-[#50547a] ">
-              Comments
             </div>
-            <form className="flex flex-col justify-center items-center mt-2 bg-[#e2e8f0] w-full md:w-[96%] ">
-              <label
-                htmlFor="prevComments"
-                className=" w-full h-[4rem] text-xl font-medium flex justify-start items-center text-[#831238] pl-2 "
-              >
-                Previous comments
-              </label>
-              <textarea
-                className="w-[99%] h-[7.85rem] rounded-lg p-2 mb-1 text-lg border-2 border-gray-400 outline-none whitespace-pre-wrap"
-                id="prevComments"
-                name="prevComments"
-                placeholder="Previous Comments"
-                readOnly
-                defaultValue={comments.prevComments}
-                style={{ resize: "none" }}
-              ></textarea>
-            </form>
-            <form className="flex flex-col justify-center items-center mt-0 border-t-4 border-t-white bg-[#e2e8f0] w-full md:w-[96%] ">
-              <label
-                htmlFor="addComments"
-                className=" w-full h-[4rem] text-xl font-medium flex justify-start items-center text-[#831238] pl-2 "
-              >
-                Add comments
-              </label>
-              <textarea
-                className="w-[99%] h-[7.85rem] rounded-lg p-2 mb-1 text-lg border-2 border-gray-400 outline-none focus:border-1 focus:border-black  whitespace-pre-wrap"
-                id="addComments"
-                name="addComments"
-                placeholder="Add Comments here"
-                defaultValue={comments.addComments}
-                onChange={(eve) => handleAddComments(eve)}
-                style={{ resize: "none" }}
-              ></textarea>
-            </form>
+          </article>
+
+          {/* Comments section */}
+          <article className="mt-4">
+            <div className="h-12 md:h-16 text-lg md:text-xl font-medium text-white flex justify-center items-center bg-[#50547a] rounded-t">
+              Students Feedback
+            </div>
+            <div className="bg-[#e2e8f0] p-4">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
+                  <label
+                    htmlFor="oneFeedback"
+                    className="block text-lg md:text-xl text-center font-medium text-[#831238] mb-2"
+                  >
+                    41000001 - Student One Feedback
+                  </label>
+                  <textarea
+                    className="w-full min-h-32 sm:min-h-40 md:min-h-48 rounded-lg p-3 text-base sm:text-lg border-2 border-gray-400 outline-none focus:border-black"
+                    id="oneFeedback"
+                    name="oneFeedback"
+                    placeholder="Add Comments here"
+                    value={feedbacks.oneFeedback}
+                    onChange={handleOneFeedback}
+                    style={{ resize: "none" }}
+                  ></textarea>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <label
+                    htmlFor="twoFeedback"
+                    className="block text-lg md:text-xl text-center font-medium text-[#831238] mb-2"
+                  >
+                    4100002 - Student Two Feedback
+                  </label>
+                  <textarea
+                    className="w-full min-h-32 sm:min-h-40 md:min-h-48 rounded-lg p-3 text-base sm:text-lg border-2 border-gray-400 outline-none focus:border-black"
+                    id="twoFeedback"
+                    name="twoFeedback"
+                    placeholder="Add Comments here"
+                    value={feedbacks.twoFeedback}
+                    onChange={handleTwoFeedback}
+                    style={{ resize: "none" }}
+                  ></textarea>
+                </div>
+              </div>
+            </div>
           </article>
         </section>
       </main>
-      <section
-        className="w-[96%] md:w-[90%] mx-auto h-fit flex flex-col md:flex-row justify-center items-center my-4"
+
+      {/* Submit button */}
+      <div
+        className="w-[95%] mx-auto flex justify-center my-6"
         onClick={() => setOpen(false)}
       >
         <button
-          className="bg-blue-600 w-24 h-10 rounded-3xl text-white font-medium mb-1 hover:shadow-[0px_0px_10px_gray] hover:scale-105"
+          className="bg-blue-600 w-32 h-10 rounded-3xl text-white font-medium hover:shadow-lg hover:scale-105 transition-transform"
           onClick={handleFinalSubmit}
         >
           Submit
         </button>
-      </section>
-      <footer className="w-[99vw] h-8 bg-slate-100 text-black text-center ">
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full h-12 bg-slate-100 text-black flex items-center justify-center">
         &copy; {new Date().getFullYear()} Institution. All rights reserved.
       </footer>
     </>
   );
 };
+
+export default NewProfileDetails;
